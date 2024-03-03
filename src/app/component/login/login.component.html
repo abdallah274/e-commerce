@@ -1,0 +1,33 @@
+<div class="m-auto w-50 text-center"><h2 >fresh cart</h2>
+</div>
+
+
+
+<section class="w-50 p-4 m-auto form">
+
+    <h1 class="my-3">Sign in</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="handelForm()">
+       
+
+        <div class="form-item">
+            <label for="email" class="p-1">Mobile number or email</label>
+            <input class="form-control" type="email" formControlName="email" id="email" placeholder="enter your email">
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="alert alert-danger p-1 small">
+                <p>email is required</p>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label for="password">password</label>
+            <input class="form-control" type="password" formControlName="password" id="password"  placeholder="enter your password">
+            <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="alert alert-danger p-1 small"><p>Passwords must be at least 6 characters</p></div>
+        </div>
+        <span class="a-button-inner ms-5">
+            <input type="submit" name="" id="continue" value="login" class="w-75"> <span *ngIf="isLoding"><i class="fas fa-spin fa-spinner"></i></span>
+        </span>
+    </form>
+   <p *ngIf="errMsg" class="alert alert-danger w-100 p-1 text-center mt-3">{{errMsg}}</p>
+</section>
+
+
+

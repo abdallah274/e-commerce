@@ -1,0 +1,53 @@
+<div class="m-auto w-50 text-center"><h2 >fresh cart</h2>
+</div>
+
+
+
+<section class="w-50 p-4 m-auto form">
+
+    <h1 class="my-3">Create account</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="handelForm()">
+        <div class="form-item">
+            <label for="name">Your name</label>
+            <input class="form-control" type="text" formControlName="name" id="name" placeholder="first and last name">
+            <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="alert alert-danger p-1 small">
+                <p>name is required</p>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label for="email">Mobile number or email</label>
+            <input class="form-control" type="email" formControlName="email" id="email" placeholder="enter your email">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger p-1 small">
+                <p>email is required</p>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label for="password">password</label>
+            <input class="form-control" type="password" formControlName="password" id="password"  placeholder="enter your password">
+            <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger p-1 small"><p>Passwords must be at least 6 characters</p></div>
+        </div>
+        <div class="form-item">
+            <label for="rePassword">Re-enter password </label>
+            <input class="form-control" type="rePassword" formControlName="rePassword" id="rePassword"  placeholder="enter your rePassword">
+            <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger p-1 small">
+                <p> Passwords must match</p></div>
+        </div>
+        
+        <div class="form-item">
+            <label for="phone">phone </label>
+            <input class="form-control" type="phone" formControlName="phone" id="phone" placeholder="phone 02+">
+            <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="alert alert-danger p-1 small">
+                <p>Passwords must be at least 8 numbers</p>
+            </div>
+      
+        </div>
+        <span class="a-button-inner ms-5">
+            <input type="submit" name="" id="continue" value="continue" class="w-75"> <span *ngIf="isLoding"><i class="fas fa-spin fa-spinner"></i></span>
+        </span>
+    </form>
+   <p *ngIf="errMsg" class="alert alert-danger w-100 p-1 text-center mt-3">{{errMsg}}</p>
+</section>
+
+

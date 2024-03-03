@@ -1,0 +1,70 @@
+
+
+<section class="py-4">
+<div class="row g-0">
+ <div class="col-md-9">
+  <owl-carousel-o [options]="mainslideOptions">
+    <ng-template carouselSlide>
+      <img height="400" src="./assets/imges/main-slider-1.jpeg" alt="slide 1 ">
+    </ng-template>  
+    <ng-template carouselSlide>
+      <img height="400" src="./assets/imges/main-slider-2.jpeg" alt="slide 2 ">
+    </ng-template>  
+    <ng-template carouselSlide>
+      <img height="400" src="./assets/imges/main-slider-3.jpeg" alt="slide 3 ">
+    </ng-template>  
+    
+  </owl-carousel-o>
+ </div>
+ <div class="col-md-3">
+  <img height="200" class="w-100" src="../../../assets/imges/slide-1.jpeg" alt="slide 1 ">
+  <img height="200" class="w-100" src="../../../assets/imges/slide-2.jpeg" alt="slide 2 ">
+
+ </div>
+
+</div>
+</section>
+
+<section class="py-4">
+    <h2>shop Popular categories</h2>
+    <owl-carousel-o [options]="categoryOptions">
+
+        <ng-container *ngFor="let category of Categories">
+          <ng-template carouselSlide>
+            <img height="300px" [src]="category.image" [alt]="category.name" [title]="category.name">
+            <h3 class="h6 text-main">{{category.name}}</h3>
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+   
+</section>
+
+
+
+<section class="w-100 py-4" *ngIf="productsData.length > 0">
+  <div class="d-flex justify-content-center align-items-center">
+    <h2>Popular Products</h2>
+    <div class="nav-fill  w-75">
+      <input type="text" class="form-control w-75 ms-2"
+       placeholder="search fresh cart" [(ngModel)]="term">
+     </div>
+  </div>
+    <div class="row g-4">
+        <div *ngFor="let product of productsData | search:term | slice:0:18" class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="product p-2">
+          <div [routerLink]="['/details', product._id]" class="text-center" role="button">
+            <img class="w-100" [src]="product.imageCover" [title]="product.title" [alt]="product.title">
+            <h3 class="small">{{product.title | cut:3}}</h3>
+            <h4 class="h6 text-main">{{product.category.name}}</h4>
+           <div class="d-flex align-items-center justify-content-between">
+           <span>{{product.price | currency:'EGP'}}</span>
+          <span>
+          <i class="fas fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+ </div>
+          </div>
+          <footer ><button (click)="addProduct(product._id)" class="btn-main text-center w-100">add to cart</button></footer>
+            </div>
+        </div>
+    </div>
+</section>

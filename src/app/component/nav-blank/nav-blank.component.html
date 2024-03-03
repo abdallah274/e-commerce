@@ -1,0 +1,67 @@
+
+<nav class="navbar navbar-expand-md navbar-light ">
+    <div class="container-fluid text-white">
+       <div class="nav-left d-flex ">
+        <a class="navbar-brand text-white" routerLink=""> <i class="fa-solid fa-cart-flatbed-suitcase"></i> fresh cart </a>
+        <button
+        class="navbar-toggler d-lg-none text-white"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+    
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="/home">home</a>
+                </li>
+           
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="/cart">cart</a>
+                </li>
+           
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="/products">Products</a>
+                </li>
+           
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="/categories">Categories</a>
+                </li>
+           
+           
+
+               
+
+
+            </ul>
+        </div>
+       </div>
+
+
+
+
+
+       <div class="nav-right d-flex justify-content-center align-items-center">
+
+
+        <li class="nav-item dropdown ms-0">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <i class="fas fa-user"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li  routerLink="/forgotPassword"><a class="dropdown-item">forgot Password</a></li>
+            </ul>
+          </li>
+       <span class="d-flex justify-content-center align-items-center position-relative" routerLink="/cart" style="cursor: pointer;">
+        <i class="fas fa-cart-shopping fa-2x ms-5  " ></i>
+        <span class="bg-info badge ms-1 position-absolute top-0 end-0" > {{cartNum}} </span>
+       </span>
+        <span role="button"  class=" me-2 ms-3" (click)="signout()">Sign&nbsp;Out</span>
+       </div>
+    </div>
+</nav> 
